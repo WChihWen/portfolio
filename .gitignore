@@ -1,0 +1,26 @@
+backend_sanity
+frontend_react
+
+wgchihwen/node_modules
+
+# dependencies
+/wgchihwen/node_modules
+/wgchihwen/.pnp
+.pnp.js
+
+# testing
+/wgchihwen/coverage
+
+# production
+/wgchihwen/build
+
+# misc
+wgchihwen/.DS_Store
+wgchihwen/.env.local
+wgchihwen/.env.development.local
+wgchihwen/.env.test.local
+wgchihwen/.env.production.local
+
+wgchihwen/npm-debug.log*
+wgchihwen/yarn-debug.log*
+wgchihwen/yarn-error.log*
