@@ -17,7 +17,7 @@ const Navbar = () => {
 					<li className='app_flex p-text' key={`link-${item}`}>
 						<div />	
 						{ item ==='resume' ? (
-							<a href = 'https://docs.google.com/document/d/1wII0vLICfwVsGwCGSOONb2pLoFUecwdEfD01uwGMPbQ/edit#' target="_blank">{item}</a>
+							<a href = 'https://drive.google.com/file/d/1kjCjihexbqVu8NTF25xSS81j4ZtwxZ0E/view' target="_blank">{item}</a>
 							) : (
 							<a href={`#${item}`}>{item}</a>
 							)}
