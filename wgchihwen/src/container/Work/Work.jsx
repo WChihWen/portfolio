@@ -14,10 +14,18 @@ const Work = () => {
 
 	useEffect(() => {
 		const query = '*[_type == "works"]';
-
-		client.fetch(query).then((data) => {
-		setWorks(data);
-		setFilterWork(data);		
+		function sortByProperty(property, asc){  
+			return function(a,b){  
+				if(asc){
+					return (a[property] > b[property]) ? 1: -1 ;
+				}else{
+					return (a[property] > b[property]) ? -1: 1 ;
+				}
+			}  
+		 }
+		client.fetch(query).then((data) => {	
+			setWorks(data.sort(sortByProperty('sorting',true)));
+			setFilterWork(data.sort(sortByProperty('sorting',true)));		
 		});
 	}, []);
 

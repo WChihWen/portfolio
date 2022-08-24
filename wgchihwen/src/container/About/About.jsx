@@ -19,9 +19,17 @@ const About = () => {
 
 	useEffect(() => {
 		const query = '*[_type == "abouts"]';
-
+		function sortByProperty(property, asc){  
+			return function(a,b){  
+				if(asc){
+					return (a[property] > b[property]) ? 1: -1 ;
+				}else{
+					return (a[property] > b[property]) ? -1: 1 ;
+				}
+			}  
+		 }
 		client.fetch(query)
-			.then((data) => setAbouts(data))
+			.then((data) => setAbouts(data.sort(sortByProperty('sorting',true))))
 	}, []);
 
 

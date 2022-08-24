@@ -13,13 +13,21 @@ const Skills = () => {
 	useEffect(() => {
 		const query = '*[_type == "experiences"]';
 		const skillsQuery = '*[_type == "skills"]';
-
+		function sortByProperty(property, asc){  
+			return function(a,b){  
+				if(asc){
+					return (a[property] > b[property]) ? 1: -1 ;
+				}else{
+					return (a[property] > b[property]) ? -1: 1 ;
+				}
+			}  
+		}
 		client.fetch(query).then((data) => {
-			setExperiences(data);
+			setExperiences(data.sort(sortByProperty('sorting',true)));
 		});
 
-		client.fetch(skillsQuery).then((data) => {
-			setSkills(data);
+		client.fetch(skillsQuery).then((data) => {	
+			setSkills(data.sort(sortByProperty('sorting',true)));
 		});
 	}, []);
 
